@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <div th:if="${error} != null">
+        <div class="alert alert-danger">
+            <h4><strong>Error!</strong> There is no sales with given percentage</h4>
+        </div>
+    </div>
+
+    <div th:if="${sales} != null">
+        <table class="table table-responsive table-striped table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Customer</th>
+                <th>Discount percentage</th>
+            </tr>
+            <tr th:each="sale : ${sales}">
+                <td th:text="${sale.id}"></td>
+                <td th:text="${sale.carMake}"></td>
+                <td th:text="${sale.carModel}"></td>
+                <td th:text="${sale.customerName}"></td>
+                <td th:text="${sale.discount}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div th:include="scripts :: footer"></div>
+</body>
+</html>

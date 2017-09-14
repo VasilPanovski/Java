@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+
+<div th:replace="home :: navbar"></div>
+<body>
+<div class="container">
+
+    <a th:href="@{/part/add}" class="btn btn-default">Add Part<strong>&nbsp;+</strong></a>
+
+    <table class="table table-responsive table-striped table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Supplier</th>
+        </tr>
+        <tr th:each="part : ${parts}">
+            <td th:text="${part.name}"></td>
+            <td th:text="${part.price}"></td>
+            <td th:text="${part.quantity}"></td>
+            <td th:text="${part.supplier.name}"></td>
+            <td>
+                <a class="btn btn-link" th:href="@{/part/delete/{id}(id=${part.id})}">Delete</a>
+            </td>
+            <td>
+                <a class="btn btn-link" th:href="@{/part/edit/{id}(id=${part.id})}">Edit</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div th:include="scripts :: footer"></div>
+</body>
+</html>

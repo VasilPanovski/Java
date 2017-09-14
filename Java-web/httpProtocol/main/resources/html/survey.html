@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <style>
+        hr {
+
+            margin-top: 0px;
+            margin-right: 34%;
+        }
+
+        label {
+            text-align: right;
+        }
+
+        span {
+            margin: 5px;
+        }
+
+       /* {
+            border: solid black;
+        }*/
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <h3>Survey</h3>
+        <hr>
+
+        <form action="survey.cgi" method="post">
+            <div class="form-group row">
+                <label class="control-label col-sm-2">First Name</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" name="first-name" placeholder="First Name"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2">Last Name</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" name="last-name" placeholder="Last Name"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2">Birthdate</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="date" value="2011-08-19" name="birthdate" placeholder="Last Name"/>
+                </div>
+            </div>
+
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2">Gender</label>
+            <div class="col-sm-6">
+                <div class="radio">
+                    <label>
+                    <input type="radio" name="male"/>
+                    Male
+                    </label>
+                </div>
+                <div class="radio">
+                        <label>
+                        <input type="radio" name="female"/>
+                        Female
+                        </label>
+                </div>
+                <div class="radio">
+                    <label>
+                    <input type="radio" name="do-not-answer"/>
+                    Do not answer
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2">Status</label>
+            <div class="col-sm-6">
+                <select class="form-control" placeholder="Student"/>
+                <option>Student</option>
+                <option>Part-time Employee</option>
+                <option>Full-time Employee</option>
+                <option>Unemployed</option>
+                <option>Do not want to answer</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2">Recommendations</label>
+            <div class="form-group col-sm-6">
+                <textarea class="form-control" name="recommendations"></textarea>
+                <div class="form-group col-sm-12">
+                    Please tell us your recommendations for and how to improve our product
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2">Your own:</label>
+            <div class="col-sm-6">
+                <label class="radio-inline"><input type="radio" name="laptop">Laptop</label>
+                <label class="radio-inline"><input type="radio" name="smart-phone">Smart Phone</label>
+                <label class="radio-inline"><input type="radio" name="mobile-phone">Mobile Phone</label>
+                <label class="radio-inline"><input type="radio" name="car">Car</label>
+                <label class="radio-inline"><input type="radio" name="bike">Bike</label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2"></label>
+            <div class="col-sm-6">
+                <input type="submit" class="btn btn-default" name="reset" value="Reset all fields"/>
+                <input type="submit" class="btn btn-primary" name="send" value="Send Survey"/>
+            </div>
+        </div>
+        </form>
+    </div>
+<scipt src="../jquery/jquery.js"></scipt>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

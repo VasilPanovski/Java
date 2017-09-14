@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:include="home :: navbar"></div>
+
+<div class="container">
+    <div th:if="${error} != null">
+        <h3></h3>
+        <div class="alert alert-danger">
+            <h3><strong>Error!</strong> No such car with this id.</h3>
+        </div>
+    </div>
+
+    <div th:if="${car} != null">
+        <table class="table table-responsive table-striped table-bordered">
+            <h3>Car:</h3>
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Travelled distance</th>
+            </tr>
+            <tr th:object="${car}">
+                <td th:text="*{make}"></td>
+                <td th:text="*{model}"></td>
+                <td th:text="*{travelledDistance}"></td>
+            </tr>
+        </table>
+
+        <table class="table table-responsive table-striped table-bordered">
+            <h3>Car parts:</h3>
+            <tr>
+                <th>Part name</th>
+                <th>Part price with discount</th>
+                <th>Add parts</th>
+            </tr>
+            <tr th:each="part : ${car.getParts()}">
+                <td th:text="${part.name}"></td>
+                <td th:text="${#numbers.formatDecimal(part.price,0,2)}"></td>
+                <td>
+                    <a class="btn btn-link" th:href="@{/part/add/{id}(id=${car.getId})}">Add part</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div th:include="scripts :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+
+<div th:replace="home :: navbar"></div>
+<body>
+<div class="container">
+    <div class="form-group">
+        <form>
+            <input type="submit" name="sort" class="btn btn-link" value="Ascending"/>
+            <input type="submit" name="sort" class="btn btn-link" value="Descending"/>
+        </form>
+    </div>
+
+    <a th:href="@{/customers/add}" class="btn btn-default">Add Customer<strong>&nbsp;+</strong></a>
+
+    <table class="table table-responsive table-striped table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Birth date</th>
+            <th>Young driver</th>
+            <th>#</th>
+        </tr>
+        <tr th:each="customer : ${customers}">
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.birthDate}"></td>
+            <td th:text="${customer.youngDriver}"></td>
+            <td>
+                <a class="btn btn-link" th:href="@{/customers/edit/{id}(id=${customer.id})}">Edit</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div th:include="scripts :: footer"></div>
+</body>
+</html>

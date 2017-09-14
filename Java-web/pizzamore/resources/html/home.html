@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+
+    <style>
+        #my-carousel {
+            height: 100%;
+            width: auto;
+            position: absolute;
+        }
+
+        .carousel-inner {
+            height: 100%;
+            width: auto;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        #navigation {
+            background-color: rgba(255,0,0,0);
+            border: none;
+            position: relative;
+            padding: 2px;
+            font-size: 20px;
+        }
+
+        .btn {
+            font-size: 20px;
+            float: right;
+            margin: 3px;
+        }
+
+        .navbar-default .navbar-brand {
+            color: #ffffff;
+        }
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            color: #e0e0e0;
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="my-carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#my-carousel" data-slide-to="1"></li>
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="/images/pizza_1.jpg" alt="Pizza image 1">
+                </div>
+                <div class="item">
+                    <img src="/images/pizza_2.jpg" alt="Pizza image 2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav id="navigation" class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Pizza More</a>
+            </div>
+        </div>
+
+        <form method="post">
+            <input type="submit" class="btn btn-primary navbar-btn" name="language" value="DE">
+            <input type="submit" class="btn btn-success navbar-btn" name="signin" value="Sign In">
+            <input type="submit" class="btn btn-warning navbar-btn" name="signup" value="Sign Up">
+        </form>
+    </nav>
+
+    <script src="/jquery/jquery.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

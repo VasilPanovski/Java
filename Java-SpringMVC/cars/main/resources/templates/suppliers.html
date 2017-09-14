@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Suppliers</title>
+    <link th:href="@{../static/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+    <div th:if="${error} != null">
+        <h3>Invalid URL root. It can be 'importers' or 'local'</h3>
+    </div>
+
+    <table class="table table-responsive table-striped table-bordered">
+        <tr>
+            <th>Supplier_id</th>
+            <th>Supplier_name</th>
+            <th>Number of parts can offer</th>
+        </tr>
+        <tr th:each="supplier : ${suppliers}">
+            <td th:text="${supplier.id}"></td>
+            <td th:text="${supplier.name}"></td>
+            <td th:text="${#lists.size(supplier.parts)}"></td>
+        </tr>
+    </table>
+
+<div th:include="scripts :: footer"></div>
+</body>
+</html>

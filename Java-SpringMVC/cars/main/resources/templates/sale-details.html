@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+    <link th:href="@{../static/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="container">
+    <div th:if="${error} != null">
+        <div class="alert alert-danger">
+            <strong>Error!</strong> There is no sale in database with this id.
+        </div>
+    </div>
+
+    <div th:if="${sales} != null">
+        <table class=" table table-striped table-responsive table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Customer name</th>
+            </tr>
+            <tbody>
+            <tr th:object="${sales}">
+                <td th:text="*{id}"></td>
+                <td th:text="*{carMake}"></td>
+                <td th:text="*{carModel}"></td>
+                <td th:text="*{customerName}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:include="scripts :: footer"></div>
+</body>
+</html>
