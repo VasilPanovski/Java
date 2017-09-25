@@ -1,0 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<div class="thumbnail">
+    <h4><strong><a href="#">{Topic Title}</a></strong> <small><a href="#">{category}</a></small></h4>
+    <p><a href="#">{Author}</a> | Replies: {count} | {date}</p>
+</div>
